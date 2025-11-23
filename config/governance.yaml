@@ -1,0 +1,121 @@
+enabled: true
+version: "1.0"
+
+guardrails:
+  input:
+    enabled: true
+    max_input_length: 10000
+    min_input_length: 1
+    prompt_injection_check: true
+    sql_injection_check: true
+    pii_detection_enabled: true
+    pii_masking_enabled: false
+    rate_limit_per_minute: 60
+    rate_limit_per_hour: 1000
+
+  output:
+    enabled: true
+    max_output_length: 5000
+    min_output_length: 1
+    hallucination_detection: true
+    hallucination_threshold: 0.7
+    bias_detection: true
+    toxicity_detection: true
+    toxicity_threshold: 0.5
+    require_citations: false
+    pii_in_output_allowed: false
+    redact_pii_in_output: true
+
+  model:
+    enabled: true
+    max_tokens_per_request: 2000
+    max_tokens_per_day: 1000000
+    max_cost_per_request: 1.0
+    max_cost_per_day: 100.0
+    max_requests_per_minute: 60
+    max_requests_per_hour: 1000
+    max_concurrent_requests: 10
+    request_timeout_seconds: 60
+    enable_fallback: true
+    fallback_strategy: "retry"
+
+  behavioral:
+    enabled: true
+    max_state_size_mb: 100
+    max_iterations: 20
+    max_tool_calls: 50
+    max_memory_mb: 512
+    audit_all_actions: true
+    escalation_enabled: true
+    escalation_threshold: 3
+
+compliance:
+  gdpr_compliant: false
+  hipaa_compliant: false
+  sox_compliant: false
+  ccpa_compliant: false
+  data_retention_days: 90
+  data_encryption_required: true
+  encryption_algorithm: "AES-256"
+  audit_logging_enabled: true
+  audit_retention_days: 90
+  require_approval: false
+
+monitoring:
+  enabled: true
+  metrics_collection: true
+  performance_tracking: true
+  error_tracking: true
+  alert_thresholds:
+    error_rate: 0.05
+    response_time_ms: 5000
+    cost_per_request: 1.0
+
+logging:
+  enabled: true
+  detailed_logging: true
+  log_retention_days: 30
+  log_sensitive_data: false
+  log_pii: false
+  log_prompts: true
+  log_responses: true
+
+feedback:
+  enabled: true
+  feedback_categories:
+    - "accuracy"
+    - "relevance"
+    - "safety"
+    - "performance"
+    - "usability"
+
+policies:
+  - name: "Input Validation"
+    description: "Validate all inputs before processing"
+    enabled: true
+    severity: "high"
+
+  - name: "Output Validation"
+    description: "Validate all outputs before returning"
+    enabled: true
+    severity: "high"
+
+  - name: "Rate Limiting"
+    description: "Enforce rate limits to prevent abuse"
+    enabled: true
+    severity: "medium"
+
+  - name: "Cost Control"
+    description: "Monitor and control API costs"
+    enabled: true
+    severity: "medium"
+
+  - name: "Audit Logging"
+    description: "Log all operations for compliance"
+    enabled: true
+    severity: "high"
+
+  - name: "Data Protection"
+    description: "Protect sensitive data"
+    enabled: true
+    severity: "critical"

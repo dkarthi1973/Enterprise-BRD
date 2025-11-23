@@ -1,0 +1,72 @@
+app:
+  title: "Enterprise BRD Template Tool"
+  version: "2.0.0"
+  debug: false
+  environment: "production"
+
+database:
+  path: "brd_templates.db"
+  audit_path: "audit.db"
+  type: "sqlite"
+
+logging:
+  level: "INFO"
+  file: "app.log"
+  max_size_mb: 100
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+upload:
+  max_size_mb: 50
+  allowed_formats:
+    - "json"
+    - "yaml"
+    - "xlsx"
+
+session:
+  timeout_minutes: 30
+  secure_cookies: true
+  same_site: "Lax"
+
+ollama:
+  host: "http://localhost:11434"
+  timeout_seconds: 60
+  retry_attempts: 3
+
+llm:
+  enabled_models:
+    - "mistral"
+    - "llama3.2"
+    - "deepseek-r1"
+    - "phi4-mini"
+  default_model: "mistral"
+  temperature: 0.7
+  max_tokens: 2000
+  top_p: 0.9
+
+features:
+  ai_suggestions: true
+  template_versioning: true
+  export_excel: true
+  governance_framework: true
+  audit_logging: true
+  performance_monitoring: true
+  multi_agent_support: true
+
+security:
+  enable_https: true
+  enable_cors: false
+  allowed_origins: []
+  rate_limiting: true
+  rate_limit_requests_per_minute: 60
+
+monitoring:
+  enabled: true
+  metrics_collection: true
+  performance_tracking: true
+  error_tracking: true
+
+api:
+  base_url: "http://localhost:8501"
+  timeout_seconds: 30
+  max_retries: 3

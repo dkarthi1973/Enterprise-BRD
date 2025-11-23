@@ -1,0 +1,89 @@
+{
+  "normal": {
+    "default_status": "draft",
+    "default_version": "1.0",
+    "default_sections": [
+      "overview",
+      "ui_specifications",
+      "api_specifications",
+      "llm_prompts",
+      "database_schema",
+      "tech_stack"
+    ],
+    "ui_defaults": {
+      "default_layout_type": "SingleColumn",
+      "default_screen_type": "Form"
+    },
+    "api_defaults": {
+      "default_timeout_seconds": 30,
+      "default_rate_limit": 100
+    },
+    "llm_defaults": {
+      "default_temperature": 0.7,
+      "default_max_tokens": 2000,
+      "default_top_p": 0.9
+    }
+  },
+  "agentic": {
+    "default_status": "draft",
+    "default_version": "1.0",
+    "default_pattern": "react",
+    "default_sections": [
+      "overview",
+      "agent_definition",
+      "tool_definitions",
+      "workflow_definition",
+      "state_management",
+      "ui_specifications",
+      "api_specifications",
+      "llm_prompts",
+      "database_schema",
+      "tech_stack"
+    ],
+    "agent_defaults": {
+      "max_iterations": 10,
+      "timeout_seconds": 300,
+      "decision_framework": "react"
+    },
+    "workflow_defaults": {
+      "max_steps": 20,
+      "allow_retry": true,
+      "max_retries": 3
+    },
+    "tool_defaults": {
+      "timeout_seconds": 30,
+      "rate_limit": 100
+    }
+  },
+  "multi_agentic": {
+    "default_status": "draft",
+    "default_version": "1.0",
+    "default_sections": [
+      "overview",
+      "agent_architecture",
+      "task_management",
+      "tool_definitions",
+      "agent_interactions",
+      "workflow_orchestration",
+      "state_management",
+      "ui_specifications",
+      "api_specifications",
+      "llm_prompts",
+      "database_schema",
+      "tech_stack"
+    ],
+    "supervisor_defaults": {
+      "max_concurrent_tasks": 10,
+      "task_timeout_seconds": 600
+    },
+    "worker_defaults": {
+      "max_concurrent_tasks": 3,
+      "timeout_seconds": 300
+    },
+    "orchestration_defaults": {
+      "strategy": "sequential",
+      "allow_parallel": true,
+      "max_parallel_tasks": 5
+    }
+  }
+}
