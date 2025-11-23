@@ -350,4 +350,3 @@ For issues, questions, or feature requests, please refer to the Help & Documenta
 
 **Last Updated**: 2025-11-20  
 **Version**: 1.0  
-**Author**: Manus AI
